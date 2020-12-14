@@ -18,9 +18,9 @@ if [ -f $ENV_DIR/REQUIREMENTS_FILE ]; then
 			PROCFILE_FILE=`cat $ENV_DIR/PROCFILE_FILE`
 			echo "       Procfile at $PROCFILE_FILE"
 			if [ -f $BUILD_DIR/$PROCFILE_FILE ]; then
-				echo "-----> Moving Procfile.txt"
-				cp $BUILD_DIR/$PROCFILE_FILE $BUILD_DIR/Procfile.txt 
-				echo "       procfile moved to $BUILD_DIR/Procfile.txt"
+				echo "-----> Moving Procfile"
+				cp $BUILD_DIR/$PROCFILE_FILE $BUILD_DIR/Procfile 
+				echo "       procfile moved to $BUILD_DIR/Procfile"
 				exit 0
 			fi
 		fi
