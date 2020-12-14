@@ -7,6 +7,7 @@ ENV_DIR=${3:-}
 
 if [ -f $ENV_DIR/REQUIREMENTS_FILE ]; then
 	REQUIREMENTS_FILE=`cat $ENV_DIR/REQUIREMENTS_FILE`
+	echo "       Requirements at $REQUIREMENTS_FILE
 	if [ -f $BUILD_DIR/$REQUIREMENTS_FILE ]; then
 		echo "-----> Moving Requirements.txt
 		echo "       Requirements at $REQUIREMENTS_FILE
