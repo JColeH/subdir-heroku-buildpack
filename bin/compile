@@ -5,18 +5,18 @@ BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
-if [ -f $ENV_DIR/PROJECT_PATH ]; then
+if [ -f $ENV_DIR/REQUIREMENTS_FILE ]; then
 	REQUIREMENTS_FILE=`cat $ENV_DIR/REQUIREMENTS_FILE`
-	if [ -f $BUILD_DIR/$PROJECT_PATH ]; then
+	if [ -f $BUILD_DIR/$REQUIREMENTS_FILE ]; then
 		echo "-----> Moving Requirements.txt
 		echo "       Requirements at $REQUIREMENTS_FILE
 		cp REQUIREMENTS_FILE $BUILD_DIR/requirements.txt 
-		echo "       requirements moved to $BUIDL_DIR.requirements.txt"
+		echo "       requirements moved to $BUILD_DIR/requirements.txt"
 		exit 0
 	fi
 fi
 
-echo "PROJECT_PATH is undefined"
+echo "REQUIREMENTS_FILE is undefined"
 exit 1
 
 
