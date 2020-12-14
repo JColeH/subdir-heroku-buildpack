@@ -10,7 +10,6 @@ if [ -f $ENV_DIR/REQUIREMENTS_FILE ]; then
 	echo "       Requirements at $REQUIREMENTS_FILE"
 	if [ -f $BUILD_DIR/$REQUIREMENTS_FILE ]; then
 		echo "-----> Moving Requirements.txt"
-		echo "       Requirements at $BUILD_DIR/$REQUIREMENTS_FILE"
 		cp $BUILD_DIR/$REQUIREMENTS_FILE $BUILD_DIR/requirements.txt 
 		echo "       requirements moved to $BUILD_DIR/requirements.txt"
 		exit 0
