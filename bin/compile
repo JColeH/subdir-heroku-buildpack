@@ -5,6 +5,7 @@ BUILD_DIR=${1:-}
 CACHE_DIR=${2:-}
 ENV_DIR=${3:-}
 
+
 if [ -f $ENV_DIR/REQUIREMENTS_FILE ]; then
 	REQUIREMENTS_FILE=`cat $ENV_DIR/REQUIREMENTS_FILE`
 	echo "       Requirements at $REQUIREMENTS_FILE"
@@ -12,7 +13,19 @@ if [ -f $ENV_DIR/REQUIREMENTS_FILE ]; then
 		echo "-----> Moving Requirements.txt"
 		cp $BUILD_DIR/$REQUIREMENTS_FILE $BUILD_DIR/requirements.txt 
 		echo "       requirements moved to $BUILD_DIR/requirements.txt"
-		exit 0
+		
+		if [ -f $ENV_DIR/PROCFILE_FILE ]; then
+			PROCFILE_FILE=`cat $ENV_DIR/PROCFILE_FILE`
+			echo "       Procfile at $PROCFILE_FILE"
+			if [ -f $BUILD_DIR/$PROCFILE_FILE ]; then
+				echo "-----> Moving Procfile.txt"
+				cp $BUILD_DIR/$PROCFILE_FILE $BUILD_DIR/Procfile.txt 
+				echo "       procfile moved to $BUILD_DIR/Procfile.txt"
+				exit 0
+			fi
+		fi
+		echo "PROCFILE_FILE is undefined"
+		exit 1
 	fi
 fi
 
